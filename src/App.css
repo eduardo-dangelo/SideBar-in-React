@@ -1,0 +1,23 @@
+.App {
+  color: #999
+}
+.body{
+  text-align: center;
+}
+.intro-box{
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 500px;
+  border-radius: 20px;
+  margin: 10% auto;
+  box-shadow: 0 4px 6px #bbb
+}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

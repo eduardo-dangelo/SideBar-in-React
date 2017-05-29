@@ -7,8 +7,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <OpenSideBar />
         <div className="body">
+        <OpenSideBar />
           <div className="intro-box">
             <img src={logo} className="App-logo" alt="logo" />
             <h1>A sideBar in React</h1>

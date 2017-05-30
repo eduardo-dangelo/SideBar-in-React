@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import FaBars from 'react-icons/lib/fa/bars'
+import SideBar from './SideBar'
 
 import './OpenSideBar.css';
 
@@ -24,11 +26,18 @@ class OpenSideBar extends Component {
       <div>
         { collapsed ? (
           <div>
-          <a onClick={this.toggleMenu}>off</a>
+            <a onClick={this.toggleMenu}>
+              <span className="burger-menu-bt">
+                <FaBars />
+              </span>
+            </a>
           </div>
         ) : (
-          <div>
-            <a onClick={this.toggleMenu}>on</a>
+          <div className="" >
+            <div className="side-bar" >
+              <SideBar />
+            </div>
+            <span className="close-area" onClick={this.toggleMenu} />
           </div>
         )}
       </div>

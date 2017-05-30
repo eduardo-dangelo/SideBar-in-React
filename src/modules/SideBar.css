@@ -1,0 +1,51 @@
+.sidebar-menu{
+  cursor: default;
+}
+.sidebar-menu-item{
+  padding: 10px;
+  color: white;
+}
+.sidebar-menu-item:hover{
+  color: white;
+  background: #333;
+}
+.menu-icon{
+  margin-right: 15px;
+}
+
+/*--DROP-ICON-ANIMATED-*/
+.drop-icon{
+  float: right;
+}
+.drop-icon-active{
+  float: right;
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+/*--DROP-MENU--*/
+.drop-menu-box{
+  overflow: hidden;
+  cursor: pointer;
+}
+.drop-menu{
+  opacity: 1;
+  margin-top: 0;
+  animation: fadeIn 0.3s ease 1;
+}
+@keyframes fadeIn {
+  0%{ margin-top: -20%;}
+  100%{ margin-top: 0;}
+}
+.drop-menu-item{
+  padding: 10px 0 10px 60px
+}
+.drop-menu-item:hover{
+  padding: 10px 0 10px 60px;
+  background: #333;
+}
+.drop-menu-item:active{
+  background: #444;
+}

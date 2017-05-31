@@ -1,13 +1,4 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
-
-class SideBar extends Component {
-
-  render(){
-    return (
-      <div>
-        <h2>testing</h2>
-=======
 import { FaNewspaperO, FaHome, FaUser, FaAngleRight } from 'react-icons/lib/fa'
 import './SideBar.css'
 
@@ -120,7 +111,6 @@ class SideBar extends Component {
                 </div>
               </div>
             )}
->>>>>>> create-sidebar-menu
       </div>
     )
   }

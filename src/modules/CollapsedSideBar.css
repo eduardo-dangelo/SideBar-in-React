@@ -1,4 +1,4 @@
-.burger-menu-bt{
+.burger-menu-bt {
   border: 2px solid #999;
   color: #999;
   border-radius: 4px;
@@ -7,23 +7,15 @@
   top: 10px;
   position: fixed;
   left: 10px;
+  cursor: pointer;
+}
 
-}
-.side-bar{
-  background: #222;
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  animation: fade 0.5s ease;
-}
 @keyframes fade {
   0% { left: -250px;}
   100% {left: 0;}
 }
 
-.close-area{
+.close-area {
   width: 100%;
   height: 100%;
   background: gray;

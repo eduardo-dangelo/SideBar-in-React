@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import OpenSideBar from './modules/OpenSideBar'
+import CollapsedSideBar from './modules/CollapsedSideBar'
 import SideBar from './modules/SideBar'
 
 
@@ -12,7 +12,7 @@ class App extends Component {
        collapsedBar: true,
        staticBar: false
      }
-     this.staticBarActive = this.staticBarActive.bind(this);
+     this.staticBarActive = this.staticBarActive.bind(this)
      this.collapsedBarActive = this.collapsedBarActive.bind(this)
   }
 
@@ -42,27 +42,26 @@ class App extends Component {
           </div>
         ) : '' }
       </div>
+
         <div className={ staticBar ? 'width-80' : 'width-100'}>
-            { collapsedBar ? ( <OpenSideBar /> ) : '' }
+            { collapsedBar ? ( <CollapsedSideBar /> ) : '' }
           <div className="intro-box">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1>A SideBar in React</h1>
-
-              <h4>Chose type:</h4>
-              <div className="btn-box">
-                <div onClick={this.collapsedBarActive} className={ collapsedBar ? 'bar-type-btn-active' : 'bar-type-btn'}>
-                  Collapsed
-                </div>
-                <div onClick={this.staticBarActive} className={ staticBar ? 'bar-type-btn-active' : 'bar-type-btn'}>
-                  Fixed
-                </div>
+              <h1>A SideBar in React</h1>
+                <h4>Chose type:</h4>
+                  <div className="btn-box">
+                    <div onClick={this.collapsedBarActive} className={ collapsedBar ? 'bar-type-btn-active' : 'bar-type-btn'}>
+                      Collapsed
+                    </div>
+                    <div onClick={this.staticBarActive} className={ staticBar ? 'bar-type-btn-active' : 'bar-type-btn'}>
+                      Fixed
+                    </div>
+                 </div>
               </div>
-
-          </div>
+           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
-}
 
 export default App;

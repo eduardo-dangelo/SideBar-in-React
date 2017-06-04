@@ -6,11 +6,10 @@
 }
 .intro-box {
   text-align: center;
-  padding: 20px;
   border: 1px solid #ddd;
-  width: 500px;
-  border-radius: 0px;
-  margin: 100px auto;
+  width: 50%;
+  top: 200px;
+  margin: auto;
   box-shadow: 0 4px 6px #bbb
 }
 .App-logo {
@@ -70,6 +69,7 @@ WIDTH CLASSES
   position: absolute;
   right: 0;
   transition: 0.5s;
+  border: 1px solid orange;
 }
 
 .width-80 {
@@ -78,6 +78,7 @@ WIDTH CLASSES
   right: 0;
   position: absolute;
   transition: 0.5s;
+  border: 1px solid orange;
 }
 
 .width-20 {

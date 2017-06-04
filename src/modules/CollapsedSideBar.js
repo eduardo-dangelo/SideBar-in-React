@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import { FaBars, FaCogs, FaHome, FaUser, FaAngleRight, FaPaintBrush } from 'react-icons/lib/fa'
-import SideBar from './SideBar'
-import './CollapsedSideBar.css';
+import { FaBars, FaCogs, FaHome, FaUser, FaAngleRight, FaPaintBrush, FaExchange } from 'react-icons/lib/fa'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import './CollapsedSideBar.css'
+
+import About from './pages/About'
+import Home from './pages/Home'
 
 class OpenSideBar extends Component {
   constructor(props){
@@ -10,13 +13,18 @@ class OpenSideBar extends Component {
        sidebar: true,
        dropdownItem1: true,
        dropdownItem2: true,
-       theme: true
+       dropdownItem3: true,
+       theme: true,
+       type: true
      }
      this.toggleSideBar = this.toggleSideBar.bind(this)
      this.toggleDropdown1 = this.toggleDropdown1.bind(this)
      this.toggleDropdown2 = this.toggleDropdown2.bind(this)
+     this.toggleDropdown3 = this.toggleDropdown3.bind(this)
      this.themeBlack = this.themeBlack.bind(this)
      this.themeWhite = this.themeWhite.bind(this)
+     this.typeCollapsed = this.typeCollapsed.bind(this)
+     this.typeFixed = this.typeFixed.bind(this)
    }
 
    toggleSideBar() {
@@ -28,14 +36,24 @@ class OpenSideBar extends Component {
  toggleDropdown1(){
    this.setState(prevState =>({
      dropdownItem1: !prevState.dropdownItem1,
-     dropdownItem2: true
+     dropdownItem2: true,
+     dropdownItem3: true
    }))
  }
 
  toggleDropdown2(){
    this.setState(prevState =>({
      dropdownItem2: !prevState.dropdownItem2,
-     dropdownItem1: true
+     dropdownItem1: true,
+     dropdownItem3: true
+   }))
+ }
+
+ toggleDropdown3(){
+   this.setState(prevState =>({
+     dropdownItem3: !prevState.dropdownItem3,
+     dropdownItem1: true,
+     dropdownItem2: true
    }))
  }
 
@@ -51,10 +69,23 @@ class OpenSideBar extends Component {
    })
  }
 
+ typeCollapsed(){
+   this.setState({
+     type: true
+   })
+ }
+
+ typeFixed(){
+   this.setState({
+     type: false
+   })
+ }
+
   render() {
-    const { sidebar, dropdownItem1, dropdownItem2, theme } = this.state
+    const { sidebar, dropdownItem1, dropdownItem2, dropdownItem3, theme, type } = this.state
 
     return (
+      <Router>
       <div>
         { sidebar ? (
           <div>
@@ -65,13 +96,16 @@ class OpenSideBar extends Component {
             </a>
           </div>
         ) : (
+
           <div>
             <div className={ theme ? ' side-bar-container dark' : 'side-bar-container white' }>
 
-              <div className="sidebar-menu-item" onClick={this.toggleSideBar}>
-                <FaHome className="menu-icon" />
-                  <span>Home</span>
-              </div>
+              <Link to="/">
+                <div className="sidebar-menu-item" onClick={ type ? (this.toggleSideBar) : '' } >
+                  <FaHome className="menu-icon" />
+                    <span>Home</span>
+                </div>
+              </Link>
 
               <div className="sidebar-menu-item" onClick={this.toggleDropdown2}>
                 <FaCogs className="menu-icon" />
@@ -80,7 +114,7 @@ class OpenSideBar extends Component {
               </div>
 
               { dropdownItem2 ? (<div /> ) : (
-                <div className="drop-menu-box" onClick={this.toggleSideBar}>
+                <div className="drop-menu-box" onClick={ type ? (this.toggleSideBar) : '' }>
                   <div className="drop-menu">
                     <div className="drop-menu-item">
                       Switch betwen bars
@@ -114,22 +148,58 @@ class OpenSideBar extends Component {
                       Dark
                     </div>
                     <div className="drop-menu-item" onClick={this.themeWhite}>
-                      White
+                      Light
                     </div>
                   </div>
                 </div>
               )}
 
-              <div className="sidebar-menu-item" onClick={this.toggleSideBar}>
-                <FaUser className="menu-icon" />
-                  <span>About</span>
+              <div className="sidebar-menu-item" onClick={this.toggleDropdown3}>
+                <FaExchange className="menu-icon" />
+                  Type
+                <FaAngleRight className={ dropdownItem1 ? ('drop-icon') : ('drop-icon-active')} />
               </div>
 
+              { dropdownItem3 ? (<div /> ) : (
+                <div className="drop-menu-box" >
+                  <div className="drop-menu">
+                    <div className="drop-menu-item" onClick={this.typeCollapsed}>
+                      Collapsed
+                    </div>
+                    <div className="drop-menu-item" onClick={this.typeFixed}>
+                      Fixed
+                    </div>
+                  </div>
+                </div>
+              )}
+
+
+              <Link to="/about">
+                <div className="sidebar-menu-item" onClick={ type ? (this.toggleSideBar) : '' } >
+                  <FaUser className="menu-icon" />
+                    <span>About</span>
+                </div>
+              </Link>
+
+
+
             </div>
-            <span className="close-area" onClick={this.toggleSideBar} />
-          </div>
+              { type ? ( <span className="close-area" onClick={this.toggleSideBar} /> ) : ''}
+            </div>
+
+
+
+
+
+
         )}
+        <div className={ type ? 'width-100' : 'width-80' }>
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+        </div>
       </div>
+      </Router>
+
     );
   }
 }

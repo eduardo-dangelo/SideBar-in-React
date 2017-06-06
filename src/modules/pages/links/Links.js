@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import './Home.css'
+import './Links.css'
 import logo from '../../logo.svg'
 
 
-class Home extends Component {
+class Links extends Component {
  render() {
    return (
      <div className="home">
-     homepage test
+     link page
      <img src={logo} className="App-logo" alt="logo" />
      </div>
    );
  }
 }
-export default Home;
+export default Links;
